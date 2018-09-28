@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+
+.news-action-floating-btn {
+    margin-top: -1.44rem;
+    margin-bottom: -1.44rem;
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 1;
+    vertical-align: middle;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+
+    .fa-chevron-right {
+        display: inline-block;
+        width: inherit;
+        text-align: center;
+        color: #fff;
+        font-size: 1rem;
+        line-height: 40px;
+    }
+}
+
+.source {
+    font-family: source-code-pro,monospace;
+    font-size: .66rem;
+    padding: 8px 9px 9px 9px;
+    position: absolute;
+    top: 10px;
+    right: 11px;
+    background-color: #fff;
+    border-radius: 4px;
+    color: #fc1a00;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    transition: color .3s,background-color .3s;
+}
+
+a:hover h5 {
+    color: #3f51b5;
+}
+
+a.title {
+    color: inherit;
+}
+
+.chip {
+    display: inline-block;
+    height: 32px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(0,0,0,.6);
+    line-height: 32px;
+    padding: 0 12px;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+    background-color: #eceff1;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    transition: all .3s linear;
+}

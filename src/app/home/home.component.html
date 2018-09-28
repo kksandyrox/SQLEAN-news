@@ -1,0 +1,111 @@
+<main class="mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row" *ngIf="error">
+                    <div class="col-md-12">
+                        <div class="card-header border-0 font-weight-bold">
+                            {{error}}
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="col-md-12">
+                        <mdb-carousel [isControls]="false" class="carousel slide carousel-fade" [animation]="'fade'">
+                            <mdb-carousel-item *ngFor="let article of popularNews">
+                                <a href="{{article.url}}" target="_blank" class="w-100">
+                                    <div class="view w-100">
+                                        <img class="d-block w-100" src="{{article.image}}" alt="First slide">
+                                        <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+                                    </div>
+                                    <div class="carousel-caption">
+                                        <h3 class="h3-responsive">{{article.title}}</h3>
+                                        <p>{{article.source}}</p>
+                                    </div>
+                                </a>
+                            </mdb-carousel-item>
+                        </mdb-carousel>
+                    </div>
+                </div>
+        
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <h4><strong>Headlines</strong></h4>
+                    </div>
+                </div>
+                
+                <div class="row mt-2" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+                    <div class="col-lg-4 col-md-6 col-sm-1" *ngFor="let article of news">
+                        <div class="card-deck">
+                            <div class="card mb-4">
+                                <div class="view overlay">
+                                    <img src="{{article.image}}" class="card-img-top">
+                                    <a href="{{article.url}}" target="_blank">
+                                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                                    </a>
+                                </div>
+        
+                                <a class="ml-auto mr-4 mdb-color indigo waves-effect waves-light news-action-floating-btn" href="{{article.url}}" target="_blank">
+                                    <i class="fa fa-chevron-right pl-1"></i>
+                                </a>
+        
+                                <div class="card-body">
+                                    <a href="{{article.url}}" target="_blank" class="title">
+                                        <h5 class="card-title">{{article.title}}</h5>
+                                    </a>
+        
+                                    <hr>
+        
+                                    <p class="card-text">
+                                        {{article.description}}
+                                    </p>
+                                </div>
+        
+                                <div class="rounded-bottom mdb-color indigo text-center pt-1">
+                                    <ul class="list-group">
+                                        <li class="list-group-item white-text">
+                                            <i class="fa fa-clock-o pr-1"></i>
+                                            {{article.published | date:'MMMM d, HH:mm a'}}
+                                        </li>
+        
+                                        <li class="list-group-item">
+                                            <a href="#" class="white-text pr-3">
+                                                <i class="fa fa-facebook-f"> </i>
+                                            </a>
+
+                                            <a href="#" class="white-text pr-3">
+                                                <i class="fa fa-twitter"> </i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+        
+                                <a href="#!" class="source">{{article.source}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 source-section">
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <h4><strong>Top Sources</strong></h4>
+                    </div>
+                </div>
+
+                <div class="row" *ngFor="let source of sources">
+                    <div class="col-md-12">
+                        <div class="chip chip-md indigo">
+                            <a routerLink="/source/{{source.id}}" class="source" class="white-text">
+                                <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                                {{source.name}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
